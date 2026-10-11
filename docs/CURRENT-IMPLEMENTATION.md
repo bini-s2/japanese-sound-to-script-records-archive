@@ -48,6 +48,8 @@ Core:
 
 `Heard Sound → Phonetic Variants → Candidate Retrieval → Context Resolver → Independent Verification → Ranking → Meaning`
 
+발음·청취 보정의 고정 baseline은 [`PRONUNCIATION-SEARCH-RULES.md`](./PRONUNCIATION-SEARCH-RULES.md)를 따른다. 새 검색 구조를 도입해도 촉음·장음·청탁음·된소리·비음·요음·조사 발음·붙여쓰기 복원 규칙을 회귀시키지 않는다.
+
 검색 품질 원칙:
 
 - 단어를 먼저 쪼개서 뜻을 이어 붙이지 않고 **입력 전체의 일본어 문맥을 먼저 판단**
