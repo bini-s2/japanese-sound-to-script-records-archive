@@ -1,5 +1,15 @@
 # Project Changelog
 
+## 2026-10-11 — Context-aware phonetic neighborhoods
+
+- 한국어로 들은 일본어에서 `쿠테 / 구테 / 쿳테 / 굿테`처럼 청음·탁음과 촉음 유무가 함께 흔들리는 케이스를 같은 phonetic neighborhood로 확장.
+- 단순 1회 치환이 아니라 voicing(k↔g, t↔d, p↔b, s↔z)과 gemination(っ) 변형을 조합해 후보 생성.
+- 긴 입력에서는 일본어 형태론 패턴(`〜くて`, `〜って`, `〜ている`, 조사 결합 등)을 context score로 반영해 단순 발음 유사도보다 문법적으로 자연스러운 후보를 우선.
+- 단독 짧은 입력은 여러 가까운 후보를 허용하고, 앞뒤 문맥이 있는 입력에서 context-aware ranking을 강화.
+- `쿠테 / 구테 / 쿳테 / 굿테`가 모두 `kute / gute / kutte / gutte` 후보군에 연결되는 회귀 테스트 추가.
+- 최신 production build에서 회귀 테스트 통과 및 Vercel READY 확인.
+- Production commits: `c33fd1b3`, `ddda3ea2`.
+
 ## 2026-10-11 — J-POP catalog becomes a search source
 
 - `세카이와코이니오치테이루` 검색이 0건이던 사례를 추적한 결과, `世界は恋に落ちている`은 이미 내부 J-POP 카탈로그에 존재했지만 카탈로그가 후보 생성이 아니라 외부 검색 결과 검증용으로만 사용되고 있었음.
