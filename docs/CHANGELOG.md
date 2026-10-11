@@ -1,5 +1,14 @@
 # Project Changelog
 
+## 2026-10-11 — Japanese mimetic / reduplicative expression search
+
+- `히라리히라리`가 `ヒラリヒラリ` 가타카나 외래어처럼 처리되던 문제를 수정.
+- 일본어 의성·의태어·상태부사 전용 로컬 lexicon을 추가하고 검색의 first-class source로 연결.
+- `ひらり / ひらりひらり / ひらひら / ゆらりゆらり / ふわりふわり / きらきら / ふわふわ / ゆらゆら / どきどき` 등 40개 이상의 자주 쓰는 표현을 포함.
+- 반복형 표현은 히라가나 원문을 유지하고 자연스러운 한국어 뜻을 제공하며, 가타카나 loanword fallback보다 우선하도록 trust/ranking에 반영.
+- `히라리히라리`, `히라리 히라리`, `키라키라`, `유라리유라리`, `후와후와` 회귀 테스트 추가.
+- Production commits: `0e390580`, `1d36c739`, `f39c4611`, `0d378e0d`.
+
 ## 2026-10-11 — Context-aware phonetic neighborhoods
 
 - 한국어로 들은 일본어에서 `쿠테 / 구테 / 쿳테 / 굿테`처럼 청음·탁음과 촉음 유무가 함께 흔들리는 케이스를 같은 phonetic neighborhood로 확장.
