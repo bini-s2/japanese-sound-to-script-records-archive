@@ -4,7 +4,7 @@
 
 ## 0. 세션 시작 시 가장 먼저 할 일
 
-1. 이 파일 → `docs/CURRENT-IMPLEMENTATION.md` → `docs/CHAT-CONTINUATION-WORKFLOW.md` 순서로 읽는다.
+1. 이 파일 → `docs/CURRENT-IMPLEMENTATION.md` → `docs/PRONUNCIATION-SEARCH-RULES.md` → `docs/CHAT-CONTINUATION-WORKFLOW.md` 순서로 읽는다.
 2. 실제 사이트 수정 요청이면 라이브 소스 저장소 `bini-s2/japanese-sound-to-script-web`의 최신 파일/SHA를 먼저 가져온다.
 3. 사용자가 보낸 최신 스크린샷/요청만 정확히 반영하고, 관련 없는 UI나 기능은 임의로 바꾸지 않는다.
 4. production 수정 후 GitHub 커밋 → Vercel 배포 상태 확인 → 실제 라이브 링크를 사용자에게 전달한다.
@@ -115,7 +115,7 @@ Core loop:
 - 붙여 쓴 발음의 단어/조사/동사 분절
   - 예: `도코에이코 → どこへ行こう`
 
-검색 수정 시 **한 케이스를 맞추는 것보다 이 원칙들을 깨지 않는지** 같이 확인한다.
+검색 수정 시 **한 케이스를 맞추는 것보다 이 원칙들을 깨지 않는지** 같이 확인한다. 발음·청취 보정의 고정 baseline은 `docs/PRONUNCIATION-SEARCH-RULES.md`를 따른다.
 
 ## 8. UI 규칙
 
