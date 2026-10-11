@@ -1,5 +1,15 @@
 # Project Changelog
 
+## 2026-10-11 — Whole-sentence grammar recovery + single assist UI
+
+- `키즈킷코나이`가 발음이 비슷한 단어 `築き上げる`로 떨어지던 사례를 기준으로, 긴 입력에서 사전 단어 유사도보다 문법 활용형을 우선하는 경로를 보강.
+- 회화 문법 `〜っこない`를 동사 연용형에서 생성하는 grammar-pattern layer 추가. `気づきっこない`는 “알아챌 리 없다 / 눈치챌 리 없다”로 검색됨.
+- 한국어 ㅅ 받침으로 적힌 촉음을 검색용으로 복원하는 규칙 추가: `킷코 → kikko`, `캇파 → kappa` 계열.
+- `키즈키코나이 / 키즈킷코나이` 모두 `気づきっこない` 후보군에 연결되도록 회귀 테스트 추가.
+- 검색 결과 상단의 “들린 발음 제안”과 “혹시 이 표현?” 카드가 동시에 노출되지 않도록 수정. 표현 suggestion이 있으면 그것만, 없을 때만 발음 suggestion을 표시.
+- 초기 구현에서 grammar generator가 발음 변환 테이블 초기화 전에 실행되어 build가 깨지는 문제를 수정했고, 최종 Production READY 확인.
+- Production commits: `807e1578`, `79bad550`, `1486d53c`, `a5288959`, `cd54c7b7`, `00b891d7`.
+
 ## 2026-10-11 — Japanese mimetic / reduplicative expression search
 
 - `히라리히라리`가 `ヒラリヒラリ` 가타카나 외래어처럼 처리되던 문제를 수정.
