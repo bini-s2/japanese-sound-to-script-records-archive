@@ -1,5 +1,15 @@
 # Project Changelog
 
+## 2026-10-11 — J-POP catalog becomes a search source
+
+- `세카이와코이니오치테이루` 검색이 0건이던 사례를 추적한 결과, `世界は恋に落ちている`은 이미 내부 J-POP 카탈로그에 존재했지만 카탈로그가 후보 생성이 아니라 외부 검색 결과 검증용으로만 사용되고 있었음.
+- J-POP 카탈로그를 직접 후보 생성 레이어로 승격.
+- reading/meaning이 있는 제목은 외부 네트워크 없이 한글 발음 → 로마자/가나 → 카탈로그 제목으로 즉시 매칭.
+- reading이 없는 제목도 전체 발음을 IME로 일본어 표기로 복원한 뒤, 내부 카탈로그 제목과 exact surface match가 성립할 때만 후보로 허용.
+- `世界は恋に落ちている / せかいはこいにおちている / 세상은 사랑에 빠져 있어` 메타데이터를 보강하고 회귀 테스트 추가.
+- 최신 production build에서 해당 회귀 테스트 통과 및 Vercel READY 확인.
+- Production commits: `f09671f5`, `0378c3f4`, `44861d1c`, `27291ba9`, `d6df35ad`.
+
 ## 2026-10-11 — Context-first hybrid sound search
 
 - 기존 검색이 발음 fuzzy score·사전·IME·자동완성 후보를 섞는 구조라, 오류 후보를 허용하면 이상한 한자 조합이 나오고 필터를 강화하면 정답까지 사라지는 문제가 반복됨.
