@@ -1,6 +1,6 @@
 # Current Implementation
 
-> Last synced: 2026-10-04  
+> Last synced: 2026-10-11  
 > Production source: `bini-s2/japanese-sound-to-script-web`  
 > Live: https://sound-to-script.vercel.app/
 
@@ -34,22 +34,29 @@ Core:
 지원 방향:
 
 - 한글로 들린 발음 입력
-- exact + fuzzy 후보
-- 장음 / 촉음 / 탁음·유사 자음 흔들림
-- 붙여 쓴 문장과 구문
-- 띄어쓰기는 hard separator가 아니라 soft boundary hint
-- multi-term boundary inference
+- **Context-first hybrid search**
+- 입력에 일반 공백이 있어도 먼저 하나의 일본어 단어/구/문장으로 해석
+- 사용자가 `/`, `|`, 쉼표 등으로 명시적으로 나눈 경우에만 독립 검색
+- 장음 / 촉음 / 탁음·유사 자음 / ん / 축약 발음 흔들림 복원
+- 사전·IME·Google 자동완성·내장 표현 데이터는 후보 생성 및 사실 검증에 사용
+- 애매하거나 기존 후보의 신뢰도가 낮은 검색은 Vercel AI Gateway의 LLM 문맥 resolver로 재판단
+- 모델이 제안한 결과도 **전체 발음 일치 + 일본어 표기 + 사전 또는 문법 구조 검증**을 다시 통과해야 노출
 - 구어체 / 문어체 / slang / J-POP lyrical expression
-- Google autocomplete / web search signal 보조
-- J-POP title popularity signal
 - 필요 시 licensed lyric provider 연결 가능
+
+검색 파이프라인:
+
+`Heard Sound → Phonetic Variants → Candidate Retrieval → Context Resolver → Independent Verification → Ranking → Meaning`
 
 검색 품질 원칙:
 
+- 단어를 먼저 쪼개서 뜻을 이어 붙이지 않고 **입력 전체의 일본어 문맥을 먼저 판단**
+- 분해는 검색 결과를 만든 뒤 문법·학습 설명에 활용
 - 후보 수보다 **가장 자연스러운 결과가 위에 오는 것**
+- 모델 판단만으로 결과를 확정하지 않으며, hallucination 방지를 위해 표기·reading을 독립 검증
+- 고확신 문맥 후보가 검증되면 낮은 품질의 fuzzy 사전 후보를 함께 노출하지 않음
 - 긴 고유명사·작품명이 짧은 일상 표현을 밀어내지 않음
-- 사전 headword가 아니어도 문법·가사체 근거가 강하면 문장 후보 허용
-- 이상한 기계 번역이나 transliteration-like 한국어 뜻을 차단
+- 이상한 기계 번역이나 영어 gloss fallback을 정상 한국어 뜻처럼 노출하지 않음
 - **IME/자동완성 후보의 존재 자체를 발음 일치 근거로 사용하지 않음**
 - IME·Google 자동완성·가사 검색 후보는 화면에 올라오기 전 **후보 표면형 전체가 사용자가 들은 발음 전체를 소비하는지** 검증
 - `사이고노 → 最後の愛を(사이고노 아이오)`처럼 입력 발음 뒤에 추가 단어가 붙은 prediction tail은 메인 후보에서 탈락
