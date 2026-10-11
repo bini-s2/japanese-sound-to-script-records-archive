@@ -12,7 +12,19 @@
 - 영어 dictionary gloss fallback을 한국어 뜻처럼 노출하는 경로 차단.
 - 후보 UI에 `문맥 검증` badge 추가, 후보 페이지 설명도 context-first 동작에 맞게 수정.
 - 중간 regression test 추가 과정에서 production build 실패를 확인했고, 실패하는 과도한 동적 assertion을 제거한 뒤 전체 build를 다시 `READY`로 복구.
-- Production code commits: `62174967`, `085e6794`, `1fc7de04`, `ae7462d4`, `b0a03a04`, `158f8e4a`, `0c562aa0`.
+- 이후 실제 배포 테스트에서 LLM resolver가 0건 fallback으로 빠지는 문제를 확인.
+- 원인 후보였던 `process.env.VERCEL_OIDC_TOKEN` 직접 참조를 제거하고 `@vercel/oidc`의 `getVercelOidcToken()`으로 런타임 토큰을 가져오도록 수정.
+- AI Gateway가 실패해도 검색 자체가 죽지 않도록 deterministic `발음·문맥 복원` 레이어 추가:
+  - 장음/자음 흔들림 variant 생성
+  - IME 전체 표기 복원
+  - surface + reading 전체 일치 검증
+  - 사전 또는 문법 구조 검증
+  - 자연스러운 한국어 뜻이 확보된 후보만 노출
+- 사용자 제보 사례를 회귀 테스트로 고정:
+  - `쿄한 → 共犯（きょうはん）`
+  - 긴 표현의 1자음 오청취 `하나세나루테`에서 `話せなくて`를 가까운 후보로 복원
+- 최신 production build에서 해당 regression suite 통과 및 Vercel `READY` 확인.
+- Production code commits: `62174967`, `085e6794`, `1fc7de04`, `ae7462d4`, `b0a03a04`, `158f8e4a`, `0c562aa0`, `45579b13`, `acdd9834`, `f9dcce05`, `d3984004`, `3dcfba68`, `aeb3a33a`, `2831d0c1`, `ec85eae9`, `9cec00ac`, `a1c66eaf`.
 
 ## 2026-10-10 — Polite-form sound search regression coverage
 
