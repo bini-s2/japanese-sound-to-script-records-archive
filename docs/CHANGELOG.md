@@ -1,5 +1,19 @@
 # Project Changelog
 
+## 2026-10-11 — Context-first hybrid sound search
+
+- 기존 검색이 발음 fuzzy score·사전·IME·자동완성 후보를 섞는 구조라, 오류 후보를 허용하면 이상한 한자 조합이 나오고 필터를 강화하면 정답까지 사라지는 문제가 반복됨.
+- 일반 공백을 단어 분리 신호로 보던 multi-term 검색을 중단하고, 사용자가 `/`, `|`, 쉼표 등으로 명시적으로 분리한 경우에만 독립 검색하도록 변경.
+- 검색 파이프라인을 `Heard Sound → Phonetic Variants → Candidate Retrieval → Context Resolver → Independent Verification → Ranking → Meaning`으로 재구성.
+- Vercel AI Gateway를 통한 LLM context resolver 추가. 기본 모델은 `openai/gpt-5.6-sol`이며, 서버 환경의 `AI_GATEWAY_API_KEY` 또는 Vercel `VERCEL_OIDC_TOKEN`을 사용.
+- LLM은 기존 후보를 재랭킹하거나 더 자연스러운 일본어 표기를 제안할 수 있지만, 결과는 다시 전체 발음 일치·일본어 script·사전 표기/reading 또는 문법 구조 검증을 통과해야 화면에 노출됨.
+- 고확신 context 후보가 검증되면 낮은 품질의 fuzzy 사전/자동완성 후보를 함께 노출하지 않도록 정리.
+- 장음 누락 후보가 유사 자음 후보 뒤에 묻히지 않도록 phonetic variant를 penalty 기준으로 재정렬.
+- 영어 dictionary gloss fallback을 한국어 뜻처럼 노출하는 경로 차단.
+- 후보 UI에 `문맥 검증` badge 추가, 후보 페이지 설명도 context-first 동작에 맞게 수정.
+- 중간 regression test 추가 과정에서 production build 실패를 확인했고, 실패하는 과도한 동적 assertion을 제거한 뒤 전체 build를 다시 `READY`로 복구.
+- Production code commits: `62174967`, `085e6794`, `1fc7de04`, `ae7462d4`, `b0a03a04`, `158f8e4a`, `0c562aa0`.
+
 ## 2026-10-10 — Polite-form sound search regression coverage
 
 - 기존 `api/search.js` 및 `scripts/search-regression.js`를 점검한 결과, 짧은 자동완성 후보 검증은 있었지만 기본 동사 활용형의 검색 회귀 검사가 부족했음.
