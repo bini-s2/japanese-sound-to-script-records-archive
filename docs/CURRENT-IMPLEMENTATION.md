@@ -42,6 +42,9 @@ Core:
 - 애매하거나 기존 후보의 신뢰도가 낮은 검색은 Vercel AI Gateway의 LLM 문맥 resolver로 재판단
 - 모델이 제안한 결과도 **전체 발음 일치 + 일본어 표기 + 사전 또는 문법 구조 검증**을 다시 통과해야 노출
 - 구어체 / 문어체 / slang / J-POP lyrical expression
+- 일본어 의성·의태어 / 상태부사 / 반복형 표현
+  - 예: `ひらりひらり`, `ゆらりゆらり`, `ふわふわ`, `きらきら`
+  - 외래어 가타카나 후보보다 native mimetic lexicon을 우선
 - 필요 시 licensed lyric provider 연결 가능
 
 검색 파이프라인:
