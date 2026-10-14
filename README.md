@@ -3,7 +3,7 @@
 > **들었던 소리가, 아는 말이 되는 순간.**  
 > 방금 들은 일본어, 무슨 뜻이지? 기억나는 소리부터 시작하는 일본어 학습 서비스.
 
-**[🌐 서비스 체험하기](https://sound-to-script.vercel.app/)** · **[프로젝트 UX 이야기](./showcase/PRODUCT-STORY.md)** · **[초기 기획 기록](./archive/README.md)**
+**[🌐 서비스 체험하기](https://tomobi-jp.vercel.app/)** · **[프로젝트 UX 이야기](./showcase/PRODUCT-STORY.md)** · **[초기 기획 기록](./archive/README.md)**
 
 ---
 
@@ -66,7 +66,7 @@
 
 **개발 및 품질 개선 진행 중** — 실제로 사용 가능한 웹서비스이며, 특히 발음 복원 정확도와 일본어 문장·한국어 뜻의 검증을 지속 개선하고 있습니다. 모든 검색어에 정확한 정답이 제공되는 것은 아닙니다.
 
-**[→ Tomobi. 사용해 보기](https://sound-to-script.vercel.app/)**
+**[→ Tomobi. 사용해 보기](https://tomobi-jp.vercel.app/)**
 
 ## About this repository
 
@@ -74,7 +74,7 @@
 
 - 실제 운영 소스 코드·API·데이터 및 내부 문서는 **별도의 Private 저장소**에서 관리합니다.
 - 이곳의 [`showcase/`](./showcase/PRODUCT-STORY.md)는 외부 공개용 프로젝트 설명입니다.
-- 공식 공개 GitHub 저장소명은 **[`tomobi`](https://github.com/bini-s2/tomobi)**입니다. 실제 앱은 별도 Private 저장소 **`tomobi-app`**에서 개발합니다. 기존 Vercel URL에는 초기 프로젝트 이름이 남아 있습니다.
+- 공식 공개 GitHub 저장소는 **[`tomobi`](https://github.com/bini-s2/tomobi)**, 실제 앱 개발은 Private **`tomobi-app`**에서 진행합니다. 공식 서비스 주소는 **https://tomobi-jp.vercel.app/**이며 이전 `sound-to-script.vercel.app`은 새 주소로 자동 이동합니다.
 - 이전에 작성한 제품 기획·리서치 문서와 작업 기록은 [`archive/legacy/`](./archive/README.md)에 **원문 그대로** 보관했습니다. 과거 문서는 현재 기능과 다를 수 있습니다.
 - 기존 Git 커밋 이력은 유지했습니다. 이 저장소를 비공개 소스 저장소와 혼동하지 않도록 주의해 주세요.
 

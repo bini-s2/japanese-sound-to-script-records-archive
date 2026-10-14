@@ -56,6 +56,6 @@ B와 C는 **방향 제안**이며, 별도 폰트 파일 또는 확정 벡터 로
 ## 6. 구현 범위
 
 **A 방향만 실제 사이트 헤더에 적용됨.** 
-GitHub 저장소는 **Public `bini-s2/tomobi` / Private `bini-s2/tomobi-app`**으로 이름을 변경했습니다. 기존 Vercel 프로젝트·라이브 주소는 연결 안정성을 위해 유지하고 있습니다.
+GitHub 저장소는 **Public `bini-s2/tomobi` / Private `bini-s2/tomobi-app`**으로 운영합니다. 공식 도메인은 **`https://tomobi-jp.vercel.app/`**이며 이전 **`https://sound-to-script.vercel.app/`**은 새 주소로 307 리다이렉트됩니다. Vercel 프로젝트의 기술적 이름은 유지합니다.
 
-[← 공개 프로젝트 소개](../README.md) · [Tomobi. 사용하기](https://sound-to-script.vercel.app/)
+[← 공개 프로젝트 소개](../README.md) · [Tomobi. 사용하기](https://tomobi-jp.vercel.app/)

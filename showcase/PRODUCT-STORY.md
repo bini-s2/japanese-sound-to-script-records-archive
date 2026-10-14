@@ -3,7 +3,7 @@
 > **들었던 소리가, 아는 말이 되는 순간.**  
 > 귀로 익힌 일본어와 실제 문자의 간극을 줄이는 학습 경험을 설계했습니다.
 
-[← 프로젝트 소개](../README.md) · [라이브 서비스](https://sound-to-script.vercel.app/)
+[← 프로젝트 소개](../README.md) · [라이브 서비스](https://tomobi-jp.vercel.app/)
 
 ## Brand concept — a little light
 
@@ -59,4 +59,4 @@
 
 이 문서는 현재 공개 가능한 제품·UX 개요를 설명합니다. 출시 성과나 사용자 검증 결과가 확인되지 않은 수치를 기재하지 않습니다.
 
-[→ 직접 사용해 보기](https://sound-to-script.vercel.app/)
+[→ 직접 사용해 보기](https://tomobi-jp.vercel.app/)
