@@ -74,7 +74,7 @@
 
 - 실제 운영 소스 코드·API·데이터 및 내부 문서는 **별도의 Private 저장소**에서 관리합니다.
 - 이곳의 [`showcase/`](./showcase/PRODUCT-STORY.md)는 외부 공개용 프로젝트 설명입니다.
-- 이 저장소와 기존 배포 URL의 기술적 이름에는 개편 전 프로젝트명이 남아 있습니다. 사용자가 보는 브랜드명은 **Tomobi.**입니다.
+- 공식 공개 GitHub 저장소명은 **[`tomobi`](https://github.com/bini-s2/tomobi)**입니다. 실제 앱은 별도 Private 저장소 **`tomobi-app`**에서 개발합니다. 기존 Vercel URL에는 초기 프로젝트 이름이 남아 있습니다.
 - 이전에 작성한 제품 기획·리서치 문서와 작업 기록은 [`archive/legacy/`](./archive/README.md)에 **원문 그대로** 보관했습니다. 과거 문서는 현재 기능과 다를 수 있습니다.
 - 기존 Git 커밋 이력은 유지했습니다. 이 저장소를 비공개 소스 저장소와 혼동하지 않도록 주의해 주세요.
 
