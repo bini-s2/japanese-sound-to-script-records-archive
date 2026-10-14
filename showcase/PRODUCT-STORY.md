@@ -1,8 +1,15 @@
-# Product story — Japanese Sound to Script
+# Product story — Tomobi.
 
+> **들었던 소리가, 아는 말이 되는 순간.**  
 > 귀로 익힌 일본어와 실제 문자의 간극을 줄이는 학습 경험을 설계했습니다.
 
 [← 프로젝트 소개](../README.md) · [라이브 서비스](https://sound-to-script.vercel.app/)
+
+## Brand concept — a little light
+
+**Tomobi.**는 일본어 `灯火(ともしび)`의 작은 불빛에서 착안했습니다. 들었던 소리 하나를 읽고 이해하는 순간이, 다음 문장을 알아듣는 힘으로 이어지도록 돕는다는 의미입니다.
+
+공식 브랜드 컬러는 **Orange `#FF6B35`**이며, 버튼과 작은 글씨에서는 대비가 높은 **`#C74415`**를 사용합니다. `To`와 마지막 마침표가 워드마크의 구별 포인트입니다.
 
 ## 01. Problem
 
