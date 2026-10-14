@@ -1,0 +1,208 @@
+# Japanese Sound to Script
+
+> 귀로 알고 있던 일본어를, 읽고 쓸 수 있는 일본어로.
+
+애니·J-POP 등으로 일본어를 오래 접해 **소리와 의미는 익숙하지만 한자·가타카나 표기에서 막히는 학습자**를 위한 AI 기반 일본어 학습 서비스입니다.
+
+## Problem
+
+일본 콘텐츠를 오래 접한 학습자는 발음과 의미를 감으로 알고 있어도 실제 표기와 연결되지 않는 경우가 많습니다.
+
+예:
+
+- `카와라나이 모노`는 무슨 뜻인지 알지만 `変わらないもの`는 바로 읽기 어렵다.
+- 히라가나는 읽을 수 있지만 한자에서 학습이 끊긴다.
+- 번역기는 결과는 주지만, 왜 그런 표현이 되는지와 비슷한 표현까지 학습하기 어렵다.
+- 커리큘럼형 학습은 재미있어도 실제로 내가 궁금했던 표현과 연결되지 않아 기억에 잘 남지 않는다.
+
+## Learning Goal
+
+핵심 목표는 콘텐츠와 실전 경험으로 먼저 익힌 일본어를 **소리 → 문자 → 의미**로 정확하게 연결하는 것입니다.
+
+현재 제품은 이 핵심 루프를 유지하면서 **JLPT N5 학습 베타**까지 확장되었습니다. 자격증 학습은 제품의 유일한 목적이 아니라, 문자·어휘·문법·독해·청해로 확장된 학습 능력을 확인하고 연습하는 한 축으로 다룹니다.
+
+## Core Idea
+
+사용자가 이미 알고 있거나 궁금했던 일본어에서 학습이 시작됩니다.
+
+`Sound → Script → Meaning → Recall`
+
+1. 소리로 알고 있는 일본어를 찾는다.
+2. 실제 일본어 표기와 읽기를 연결한다.
+3. 뜻과 표현 구조를 이해한다.
+4. 다시 꺼내보며 기억에 고정한다.
+
+## Core Modes
+
+### HEARD
+
+한글로 기억하는 일본어 발음을 입력합니다.
+
+```text
+카와라나이 모노
+↓
+変わらないもの
+かわらないもの
+변하지 않는 것
+```
+
+결과에서 원형, 문법 구조, 비슷한 표현, 사용 맥락을 함께 확인합니다.
+
+읽기 힌트는 히라가나를 우선합니다. 영문 로마자 발음은 히라가나 옆의 작은 `(발음 보기)` 버튼을 눌렀을 때만 표시합니다.
+
+```text
+今日
+きょう  (발음 보기)
+       ↓
+      kyō
+```
+
+### WRITE
+
+한국어로 말하고 싶은 문장을 입력하면 자연스러운 일본어 표현을 제안합니다.
+
+- 자연스러운 일본어
+- 읽는 법
+- 비슷한 표현
+- 뉘앙스 차이
+- 문법·어휘 설명
+
+### LISTEN
+
+실제 콘텐츠를 들으며 `소리 → 문자 → 의미`를 연결하는 학습 모드입니다.
+
+1. 특정 구간의 가사를 가린다.
+2. 들은 일본어와 일치하는 문장을 객관식으로 고른다.
+3. 이어서 뜻을 고른다.
+4. 두 단계가 끝나면 정답과 표현 구조를 공개한다.
+5. 틀려도 강제로 반복시키지 않고 `다시 해보기 / 다음으로`를 선택한다.
+
+> J-POP/영상 기반 기능은 저작권과 라이선스를 고려해 설계하며, 초기 MVP에서는 자체 예문과 사용자가 입력한 표현으로 학습 구조를 검증합니다.
+
+## Usage Context
+
+각 표현에는 뜻뿐 아니라 실제 사용 맥락을 함께 제공합니다.
+
+예:
+
+- `일상 회화에서 자주 사용`
+- `J-POP 가사에서 자주 보임`
+- `문어체`
+- `캐주얼`
+- `조금 문학적인 표현`
+
+초기에는 정성적 라벨로 제공하고, 향후 신뢰할 수 있는 사용 데이터와 코퍼스를 기반으로 확장합니다.
+
+## Personal Learning
+
+사용자의 오답과 관심 표현을 기록해 개인화 학습으로 연결합니다.
+
+- 자주 헷갈리는 한자
+- 자주 헷갈리는 가타카나
+- 비슷하게 들리는 표현
+- 저장한 문장
+- 최근 궁금했던 표현
+
+학습할 내용을 서비스가 일방적으로 정하기보다 **사용자가 실제로 궁금했던 표현**을 다시 꺼내 복습합니다.
+
+## Brand
+
+서비스에는 캐릭터 IP **소복이네**를 활용합니다.
+
+캐릭터는 UI를 과하게 장식하기보다 온보딩, 정답·오답 피드백, 복습 가이드, Empty State 등에서 학습 경험을 부드럽게 돕는 역할로 사용합니다.
+
+## MVP
+
+부트캠프 시작 전 첫 버전은 아래 핵심 루프에 집중합니다.
+
+```text
+한글 발음 입력
+→ 일본어 후보 비교·선택
+→ 표기 / 읽기 / 뜻 / 핵심 구조
+→ 예상과 실제 의미 비교
+→ 저장
+→ 원할 때 복습하기
+```
+
+### V1 Scope
+
+- 한글 발음 입력
+- 가능한 일본어 후보 2~3개와 확신 수준
+- 사용자의 후보 선택
+- 히라가나 읽기와 한국어 의미
+- 핵심 표현·문법 구조
+- 유사음·예상 의미 비교
+- 표현 저장과 결과 피드백
+- 사용자가 선택하는 Minimal Review
+- 표기 읽기 → 뜻 떠올리기 → 뜻 객관식
+- 알았어요 / 헷갈려요 자기평가
+- 무작위 단어·문장·혼합 표기 연습
+- 히라가나·가타카나·자주 쓰는 한자 표현·문장 학습
+- J-POP 제목 뜻 고르기·읽기·표현 분석 퀴즈, 자체 상황 대화, 소복이네 그림 퀴즈
+
+### Not in V1
+
+- 결제
+- 복잡한 추천 알고리즘
+- 전체 J-POP 가사 DB
+- 고급 개인화
+- 완성형 로그인/소셜 기능
+
+## Product Direction
+
+이 프로젝트는 포트폴리오용 화면 제작에 그치지 않고 **실제로 판매 가능한 제품/SaaS 가능성**을 검증하는 것을 목표로 합니다.
+
+초기에는 사용자 1호로 직접 사용하며 현재 학습 상태와 반복되는 문제를 기록합니다. 번역기 사용, 발음 힌트 의존, 읽기 정확도와 복습 결과를 바탕으로 기능을 수정하고, 외부 사용자 검증은 제품을 다른 학습자로 확장할 때 진행합니다.
+
+## Current Status
+
+> Live product: https://sound-to-script.vercel.app/  
+> Current implementation details: [docs/CURRENT-IMPLEMENTATION.md](./docs/CURRENT-IMPLEMENTATION.md)
+
+- [x] 핵심 문제·타깃·JTBD 정의
+- [x] Core Learning Loop 정의 — `Sound → Script → Meaning → Recall`
+- [x] 발음 검색 MVP 개발·배포
+- [x] 한글 발음 fuzzy search / 문장·구문 / 다단어 경계 추론
+- [x] J-POP 가사체·문어체·구어체 검색 보강
+- [x] 히라가나·가타카나·한자 문자 학습 페이지
+- [x] 히라가나↔가타카나 비교 hover / 혼합 보기
+- [x] 랜덤 퀴즈 — 무작위·상황별 / 글자·단어·문장
+- [x] 단어·문장 `Sound → Script → Meaning` 2-step recall
+- [x] 모르겠어요 / 오답 기반 복습 연결
+- [x] 북마크 / 복습하기
+- [x] JLPT N5 학습 베타 — 문법·어휘·독해·청해·미니 테스트
+- [x] 청해 오디오 fallback
+- [x] 현재 UI hierarchy / tag system / section spacing 정리
+- [ ] 문제은행 확대 및 일본어 문장 QA
+- [ ] N4 이상 JLPT 확장
+- [ ] 실제 사용자 테스트
+- [ ] 계정·동기화·고급 개인화
+
+## Docs
+
+### Start here
+
+- [`AGENTS.md`](./AGENTS.md) — 새 채팅/에이전트가 바로 작업을 이어가기 위한 시작 가이드
+- [`docs/CURRENT-IMPLEMENTATION.md`](./docs/CURRENT-IMPLEMENTATION.md) — **현재 라이브 제품의 실제 구현 상태**
+- [`docs/CHANGELOG.md`](./docs/CHANGELOG.md) — production 구현을 프로젝트 관점에서 묶어 기록한 변경 이력
+- [`docs/CHAT-CONTINUATION-WORKFLOW.md`](./docs/CHAT-CONTINUATION-WORKFLOW.md) — 대화 방식·GitHub 수정·Vercel 검증·저장소 기록 규칙
+
+### Product / research
+- [`docs/PRODUCT.md`](./docs/PRODUCT.md) — 제품 정의와 UX 원칙
+- [`docs/PRODUCT-STRATEGY.md`](./docs/PRODUCT-STRATEGY.md) — Value Proposition·V1 우선순위·성공 기준
+- [`docs/LEARNING-DESIGN.md`](./docs/LEARNING-DESIGN.md) — 결과 노출·힌트·선택 복습·오답 피드백
+- [`docs/IA-USER-FLOW.md`](./docs/IA-USER-FLOW.md) — 화면 구조·검색·학습 콘텐츠·저장·복습·예외 흐름
+- [`docs/CONTENT-PLAN.md`](./docs/CONTENT-PLAN.md) — 무작위·문자·J-POP 제목·상황·그림 퀴즈 구성
+- [`docs/LOW-FI-WIREFRAME.md`](./docs/LOW-FI-WIREFRAME.md) — 모바일 우선 1차 프레임 14개·레이아웃·상태·프로토타입 연결
+- [`docs/JPOP-TITLE-CONTENT.md`](./docs/JPOP-TITLE-CONTENT.md) — 첨부 자료 기반 J-POP 제목 퀴즈 후보 335개
+- [`docs/KANJI-CONTENT.md`](./docs/KANJI-CONTENT.md) — 자주 쓰는 한자 표현 20개·예문·뉘앙스 기준
+- [`docs/SYNTHESIS.md`](./docs/SYNTHESIS.md) — 인사이트·타깃·JTBD·최종 문제 정의
+- [`docs/LEARNING-STATUS.md`](./docs/LEARNING-STATUS.md) — 초기 학습 상태와 Skill Gap
+- [`docs/COMPETITIVE-RESEARCH.md`](./docs/COMPETITIVE-RESEARCH.md) — 경쟁 서비스·시장·콘텐츠 권리 리서치
+- [`docs/MVP.md`](./docs/MVP.md) — 첫 버전 범위
+- [`docs/ROADMAP.md`](./docs/ROADMAP.md) — 단계별 확장 계획
+
+---
+
+Working title: **Japanese Sound to Script**  
+Brand name: TBD
